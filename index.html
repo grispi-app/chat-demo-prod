@@ -422,6 +422,7 @@
         et justo posuere imperdiet. Nunc condimentum vitae ipsum et sollicitudin. Nunc bibendum venenatis mi, et
         pharetra libero luctus a.
     </p></div>
+<script src="https://grispi.app/chat-widget/chat-widget.js"></script>
 <script>
 
     function actAsNewUser() {
@@ -440,11 +441,10 @@
     if (params.tenantId) {
         lipsum.style.display = 'block';
 
-        const chatScript = document.createElement('script');
-        chatScript.setAttribute('async', 'true');
-        chatScript.setAttribute('data-grispi-chat-widget', 'true');
-        chatScript.setAttribute('src', `https://cdn.grispi.com/chat/chat-widget.js?tenantId=${params.tenantId}&debug=true`);
-        document.head.appendChild(chatScript);
+        GrispiChat.create({
+            tenantId: `params.tenantId`,
+            debug: true
+        });
 
         actionButtons.style.display = 'block';
     } else {
